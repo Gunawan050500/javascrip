@@ -6,76 +6,77 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <title>Info Gempa</title>
-
-    <script>
-        class Gempa{
-            constructor(lokasi, skala){
-                this.lokasi = lokasi;
-                this.skala = skala;
-            }
-    
-            dampak(){
-                if(this.skala <= 2) this.dagem = 'Tidak Terasa';
-                else if(this.skala > 2 && this.skala <= 4) this.dagem = 'Bangunan Retak-Retak';
-                else if(this.skala > 4 && this.skala <= 6) this.dagem = 'Bangunan Roboh';
-                else if(this.skala > 6) this.dagem = 'Bangunan Roboh dan Berpotensi Tsunami';
-                else this.dagem = '';
-                return this.dagem;
-            }
-    
-            infoGempa(){
-            this.no = 1;
-            document.write(`
-            <tr>
-                <td>${this.no++}</td>
-                <td>${this.lokasi}</td>
-                <td>${this.skala}</td>
-                <td>${this.dampak()}</td>
-            </tr>
-            `);
-            }
-        }
-    
-        g1 = new Gempa('Jakarta', '2');
-        g2 = new Gempa('Bogor', '4');
-        g3 = new Gempa('Depok', '6');
-        g4 = new Gempa('Kuta', '8');
-        g5 = new Gempa('Aceh', '10');
-        g6 = new Gempa('Tanggerang', '1');
-        g7 = new Gempa('Yogyakarta', '3');
-        g8 = new Gempa('Solo', '5');
-        g9 = new Gempa('Palembang', '7');
-        g10 = new Gempa('Sukabumi', '9');
-        
-        //g1.infoGempa();
-    </script>
 </head>
 <body>
     <table class="table text-center">
         <thead>
           <tr>
-            <th scope="col">NO</th>
+            <th scope="col">No</th>
             <th scope="col">Lokasi</th>
             <th scope="col">Skala</th>
             <th scope="col">Dampak</th>
           </tr>
         </thead>
-        <tbody>
-        <script>
-            document.write(`
-                ${g1.infoGempa()}
-                ${g2.infoGempa()}
-                ${g3.infoGempa()}
-                ${g4.infoGempa()}
-                ${g5.infoGempa()}
-                ${g6.infoGempa()}
-                ${g7.infoGempa()}
-                ${g8.infoGempa()}
-                ${g9.infoGempa()}
-                ${g10.infoGempa()}
-            `);
-        </script>
+        <tbody id="isi">
+        
         </tbody>
       </table>
 </body>
+<script>
+    let no = 0
+    class Gempa{
+        constructor(lokasi, skala){
+            this.lokasi = lokasi;
+            this.skala = skala;
+
+            no++
+            this.no = no;
+        }
+
+        dampak(){
+            if(this.skala <= 2) this.dagem = 'Tidak Terasa';
+            else if(this.skala > 2 && this.skala <= 4) this.dagem = 'Bangunan Retak-Retak';
+            else if(this.skala > 4 && this.skala <= 6) this.dagem = 'Bangunan Roboh';
+            else if(this.skala > 6) this.dagem = 'Bangunan Roboh dan Berpotensi Tsunami';
+            else this.dagem = '';
+            return this.dagem;
+        }
+
+        infoGempa(){
+        return `<tr>
+                    <td>${this.no}</td>
+                    <td>${this.lokasi}</td>
+                    <td>${this.skala}</td>
+                    <td>Dampak: ${this.dampak()}</td>
+                </tr>`;
+        }
+    }
+
+    g1 = new Gempa('Jakarta', '2');
+    g2 = new Gempa('Bogor', '4');
+    g3 = new Gempa('Depok', '6');
+    g4 = new Gempa('Kuta', '8');
+    g5 = new Gempa('Aceh', '10');
+    g6 = new Gempa('Tanggerang', '1');
+    g7 = new Gempa('Yogyakarta', '3');
+    g8 = new Gempa('Solo', '5');
+    g9 = new Gempa('Palembang', '7');
+    g10 = new Gempa('Sukabumi', '9');
+    
+    let isiTabel = ""
+
+    isiTabel += g1.infoGempa();
+    isiTabel += g2.infoGempa();
+    isiTabel += g3.infoGempa();
+    isiTabel += g4.infoGempa();
+    isiTabel += g5.infoGempa();
+    isiTabel += g6.infoGempa();
+    isiTabel += g7.infoGempa();
+    isiTabel += g8.infoGempa();
+    isiTabel += g9.infoGempa();
+    isiTabel += g10.infoGempa();
+
+    document.getElementById("isi").innerHTML = isiTabel;
+    
+</script>
 </html>
