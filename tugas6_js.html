@@ -8,7 +8,7 @@
     <title>Info Gempa</title>
 </head>
 <body>
-    <table class="table text-center">
+    <table class="table table-striped text-center">
         <thead>
           <tr>
             <th scope="col">No</th>
@@ -22,6 +22,7 @@
         </tbody>
       </table>
 </body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
 <script>
     let no = 0
     class Gempa{
@@ -47,21 +48,21 @@
                     <td>${this.no}</td>
                     <td>${this.lokasi}</td>
                     <td>${this.skala}</td>
-                    <td>Dampak: ${this.dampak()}</td>
+                    <td>${this.dampak()}</td>
                 </tr>`;
         }
     }
 
-    g1 = new Gempa('Jakarta', '2');
+    g1 = new Gempa('Jakarta', '2.3');
     g2 = new Gempa('Bogor', '4');
-    g3 = new Gempa('Depok', '6');
-    g4 = new Gempa('Kuta', '8');
+    g3 = new Gempa('Depok', '6.5');
+    g4 = new Gempa('Kuta', '8.2');
     g5 = new Gempa('Aceh', '10');
-    g6 = new Gempa('Tanggerang', '1');
+    g6 = new Gempa('Tanggerang', '1.1');
     g7 = new Gempa('Yogyakarta', '3');
-    g8 = new Gempa('Solo', '5');
-    g9 = new Gempa('Palembang', '7');
-    g10 = new Gempa('Sukabumi', '9');
+    g8 = new Gempa('Solo', '5.8');
+    g9 = new Gempa('Palembang', '7.8');
+    g10 = new Gempa('Sukabumi', '9.3');
     
     let isiTabel = ""
 
